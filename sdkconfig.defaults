@@ -1,0 +1,26 @@
+# sdkconfig.defaults – configurações padrão para o projeto Estufa
+# Gerado automaticamente – pode ser sobrescrito pelo menuconfig
+
+# Particionamento customizado
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
+
+# Habilita SPIFFS
+CONFIG_SPIFFS_USE_MAGIC=y
+CONFIG_SPIFFS_USE_MAGIC_LENGTH=y
+
+# UART para console serial
+CONFIG_ESP_CONSOLE_UART_DEFAULT=y
+CONFIG_ESP_CONSOLE_UART_NUM=0
+CONFIG_ESP_CONSOLE_UART_BAUDRATE=115200
+
+# Log padrão: INFO em produção
+CONFIG_LOG_DEFAULT_LEVEL_INFO=y
+
+# FreeRTOS tick rate 1000 Hz para granularidade de 1 ms
+CONFIG_FREERTOS_HZ=1000
+
+# Habilita ADC calibration
+CONFIG_ADC_CAL_EFUSE_VREF_ENABLE=y
+CONFIG_ADC_CAL_EFUSE_TP_ENABLE=y
+CONFIG_ADC_CAL_LUT_ENABLE=y

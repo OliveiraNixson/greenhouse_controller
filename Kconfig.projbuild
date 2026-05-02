@@ -1,0 +1,120 @@
+menu "Configurações da Estufa"
+
+    menu "Pinos dos Sensores"
+
+        config DHT11_GPIO
+            int "GPIO do sensor DHT11"
+            default 4
+            help
+                Número do pino GPIO conectado ao sensor DHT11.
+
+        config LDR_ADC_CHANNEL
+            int "Canal ADC do sensor LDR (0-9)"
+            default 0
+            help
+                Canal ADC1 conectado ao divisor de tensão do LDR.
+                Canal 0 = GPIO36, Canal 3 = GPIO39, etc.
+
+    endmenu
+
+    menu "Pinos do Display OLED"
+
+        config OLED_I2C_SDA
+            int "GPIO SDA do I2C (OLED)"
+            default 21
+            help
+                Pino SDA do barramento I2C para o display OLED.
+
+        config OLED_I2C_SCL
+            int "GPIO SCL do I2C (OLED)"
+            default 22
+            help
+                Pino SCL do barramento I2C para o display OLED.
+
+        config OLED_I2C_ADDR
+            hex "Endereço I2C do OLED"
+            default 0x3C
+            help
+                Endereço I2C do display OLED (normalmente 0x3C ou 0x3D).
+
+    endmenu
+
+    menu "Parâmetros de Controle"
+
+        config SETPOINT_TEMP_DEFAULT
+            int "Set point padrão de temperatura (°C)"
+            default 25
+            range 10 50
+            help
+                Temperatura alvo padrão para controle da estufa.
+
+        config SETPOINT_TEMP_MIN
+            int "Temperatura mínima permitida (°C)"
+            default 10
+            range 0 40
+            help
+                Limite inferior do set point de temperatura.
+
+        config SETPOINT_TEMP_MAX
+            int "Temperatura máxima permitida (°C)"
+            default 50
+            range 20 80
+            help
+                Limite superior do set point de temperatura.
+
+        config HISTERESE_TEMP
+            int "Histerese de temperatura (°C × 10)"
+            default 5
+            help
+                Histerese em décimos de grau (ex: 5 = 0.5°C).
+
+        config RELAY_GPIO
+            int "GPIO do relé de controle"
+            default 26
+            help
+                Pino GPIO conectado ao relé do sistema de aquecimento.
+
+    endmenu
+
+    menu "Registro de Dados (Logging)"
+
+        config LOG_INTERVAL_SEC
+            int "Intervalo de registro em segundos"
+            default 30
+            range 5 3600
+            help
+                Intervalo em segundos entre cada registro no arquivo de log.
+
+        config LOG_FILENAME
+            string "Nome do arquivo de log"
+            default "/spiffs/log.txt"
+            help
+                Caminho completo do arquivo de log no SPIFFS/LittleFS.
+
+        config LOG_MAX_LINES
+            int "Número máximo de linhas no log"
+            default 500
+            range 50 5000
+            help
+                Quando atingir este limite, o arquivo é rotacionado.
+
+        config LOGGING_ENABLED_DEFAULT
+            bool "Habilitar logging por padrão"
+            default y
+            help
+                Se habilitado, o logging inicia automaticamente ao ligar.
+
+    endmenu
+
+    menu "Leitura dos Sensores"
+
+        config SENSOR_READ_INTERVAL_MS
+            int "Intervalo de leitura dos sensores (ms)"
+            default 2000
+            range 1000 60000
+            help
+                Período em milissegundos entre leituras dos sensores.
+
+    endmenu
+
+endmenu
