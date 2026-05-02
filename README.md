@@ -125,8 +125,8 @@ Franzininho WiFi LAB01
 ### Clonar o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/greenhouse-control.git
-cd greenhouse-control
+git clone https://github.com/seu-usuario/greenhouse-controllerlerler.git
+cd greenhouse-controllerlerlerler
 ```
 
 ### Instalar dependências (Component Manager)
@@ -236,7 +236,7 @@ timestamp_ms,temperatura,umidade,luminosidade,setpoint,relay
 ## Estrutura do projeto
 
 ```
-greenhouse-control/
+greenhouse-controllerlerlerler/
 ├── CMakeLists.txt              # Build raiz
 ├── Kconfig.projbuild           # Opções do menuconfig
 ├── partitions.csv              # Tabela de partições com SPIFFS
